@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>calculadora</title>
+	</head>
+	<body>
+		<a href="index.html">Volta ao início.</a>
+		<h1>Minha calculadora</h1>
+		<hr>
+		<div>
+			<label for="first">Primeiro número</label>
+			<br>
+			<input type="text" id="first">
+		</div>
+		<div>
+			<label for="second">Segundo número</label><br>
+			<input type="text" id="second">
+		</div>
+		<hr>
+		<div>
+			<button id="sum">Somar</button>
+			<button id="sub">Subtrair</button>
+			<button id="mut">Multiplicar</button>
+			<button id="div">Dividir</button>
+			<hr>
+		</div>
+		<br>
+		<div>
+			<span id="result"></span>
+		</div>
+		<script>
+			var firstNumberInput = document.getElementById( "first" );
+			var secondNumberInput = document.getElementById( "second" );
+
+			document.getElementById( "sum" ).addEventListener( "click", () => {
+				let { firstNumber, secondNumber } = getValues();
+				let result = firstNumber + secondNumber;
+				printResult( result );
+			} );
+
+			document.getElementById( "sub" ).addEventListener( "click", () => {
+				let { firstNumber, secondNumber } = getValues();
+				let result = firstNumber - secondNumber;
+				printResult( result );
+			} );
+
+			document.getElementById( "mut" ).addEventListener( "click", () => {
+				let { firstNumber, secondNumber } = getValues();
+				let result = firstNumber * secondNumber;
+				printResult( result );
+			} );
+
+			document.getElementById( "div" ).addEventListener( "click", () => {
+				let { firstNumber, secondNumber } = getValues();
+				let result = firstNumber / secondNumber;
+				printResult( result );
+			} );
+
+			function getValues () {
+				let firstNumber = parseFloat( firstNumberInput.value );
+				let secondNumber = parseFloat( secondNumberInput.value );
+				return { firstNumber, secondNumber };
+			}
+
+			function printResult ( result ) {
+				document.getElementById( "result" ).innerHTML = "O resultado é: " + result;
+			}
+		</script>
+	</body>
+</html>
